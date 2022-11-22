@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-       HashMap<String, Integer> products = new HashMap<>();
+        HashMap<String, Integer> products = new HashMap<>();
         products.put("Хлеб", 56);
         products.put("Масло", 153);
         products.put("Колбаса", 211);
@@ -15,7 +15,7 @@ public class Main {
         printProducts(products);
 
         Scanner scanner = new Scanner(System.in);
-        Purchase purchase = new Purchase(products.size());
+        ShoppingCart shoppingCart = new ShoppingCart(products.size());
 
         while (true) {
             String line = scanner.nextLine();
@@ -23,9 +23,9 @@ public class Main {
             String[] parts = line.split(" ");
             String product = parts[0];
             int count = Integer.parseInt(parts[1]);
-            purchase.addPurchase(product, count);
+            shoppingCart.addPurchase(product, count);
         }
-        long sumPurchase = ShoppingCart.sum(products,purchase);
+        long sumPurchase = ShoppingCart.sum(products, shoppingCart);
         System.out.println("ИТОГО: " + sumPurchase);
     }
 
